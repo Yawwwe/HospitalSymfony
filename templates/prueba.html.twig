@@ -1,0 +1,23 @@
+{# plantilla/prueba.html.twig' #}
+{% extends 'default.html.twig' %}
+{% block contenido %}
+<h1>productos</h1>
+
+<table>
+    <tr>
+	<td>Nombre</td>
+	</tr>
+	{% for producto in productos %}
+        <tr>
+		<td>{{ producto.name }}</td>
+		<td>{{ producto.price }}</td>
+		<td>{{ producto.description }}</td>
+		</tr>
+    {% endfor %}
+</table>
+
+
+{% endblock %}
+{% block right %}
+{% include 'derecha.html.twig'%}
+{% endblock %}
