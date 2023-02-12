@@ -1,0 +1,18 @@
+{% extends 'default.html.twig' %}
+
+{% block body %}
+<style>
+a{
+    color:black;
+}
+a:hover{
+    color:blue;
+}
+</style>
+<h3>Especialidades disponibles en nuestro centro, seleccione una para conocer a sus profesionales</h3>
+{% for e in especialidades %}
+<h3 id="hola"> -><a href="{{path("listarMedicosPorEspecialidad", {"id":e.id})}}"> {{e.especialidad}} </a> </h3> 
+
+{% endfor %}
+
+{% endblock %}

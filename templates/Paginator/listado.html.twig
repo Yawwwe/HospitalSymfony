@@ -1,0 +1,71 @@
+{% extends 'default.html.twig' %}
+{% block body %}
+
+<style>
+.Meds{
+    font-size:large;
+
+}
+td{
+    padding:4px;
+}
+.foto{
+
+}
+
+
+</style>
+
+
+<div class="container-fluid">
+    <h1>Personal de nuestro centro</h1>
+ 
+    {# total items count #}
+    <div class="count" class="Meds">
+        <span class="label label-primary">
+            Entradas en total: {{ pagination.getTotalItemCount }}
+        </span>
+    </div>
+    {# display navigation #}
+    <div class="navigation" class="Meds">
+        <h3>{{ knp_pagination_render(pagination) }}</h3>
+    </div>
+    <br/>
+    <table class="table table-bordered">
+        <tr>
+            {# sorting of properties based on query components #}
+            <td class="Meds">{{ knp_pagination_sortable(pagination, 'ID', 'p.id') }}</td>
+            <td class="Meds" 
+            </td>
+
+            <td class="Meds" {% if pagination.isSorted('p.nombre') %} class="sorted"{% endif %}>
+                {{ knp_pagination_sortable(pagination, 'Nombre', 'p.nombre') }}</td>
+
+
+            <td class="Meds" {% if pagination.isSorted('p.apellidos') %} class="sorted"{% endif %}>
+                {{ knp_pagination_sortable(pagination, 'Apellidos', 'p.apellidos') }}</td>
+
+        </tr>
+ 
+        
+        {# table body #}
+        {% for item in pagination %}
+            <tr {% if loop.index is odd %}class="color"{% endif %}>
+          
+                <td><div class="Meds">{{ item.id }}</div></td>
+                <td><div class="Meds">{{ item.especialidad|join(', ')}}</div></td>
+                 <td><div class="Meds">{{ item.nombre }}</div></td>
+                  <td><div class="Meds">{{ item.apellidos }}</div></td>
+                
+            </tr>
+           
+        {% endfor %}
+    </table>
+
+    <div class="foto"> 
+    <img src="../images/css/hospitales-IV.jpg " height="400px" >
+    </div>
+    
+</div>
+
+{% endblock %}
