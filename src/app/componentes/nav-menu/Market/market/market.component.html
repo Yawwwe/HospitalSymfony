@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-3"><h2>Market</h2></div>
+    <div class="col-6"></div>
+    <div class="col-3">
+        <input type="text" class="form-control" placeholder="Coin name or ID" aria-label="Recipient's username"  aria-describedby="button-addon2" #input >
+        <button class="btn btn-outline-primary" type="button" id="button-addon2" (click)="setNombreFiltro(input.value)">Search</button>
+      </div>
+    </div>
+  
+  <div class="row row-cols-md-5">
+    <app-crypto-card *ngFor="let crypto of getAllCryptos() | porNombreEId: getNombreFiltro(): getIDFiltro()" [crypto]="crypto"></app-crypto-card>
+  </div>
+  
+  <div class="row">
+    <button class="btn btn-primary btn-lg" (click)="update()">REFRESH</button>
+  </div>
+
+  

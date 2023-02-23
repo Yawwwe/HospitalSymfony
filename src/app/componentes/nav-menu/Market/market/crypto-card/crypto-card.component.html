@@ -1,0 +1,9 @@
+<div class="card text-center bg-light pt-2 pr-2 mb-2 mr-2">
+	<img src={{crypto.image}} class="mx-auto" width="100px" height="100px">
+	<div class="card-body">
+		<h5 class="card-title">{{crypto.id}}</h5>
+		<h4 class="card-text fw-bold"> {{crypto.current_price}}$</h4>
+		<p class="card-text fw-bold">{{crypto.symbol}}</p>
+		<button type="button" #button class="btn btn-danger" (click)="button.disabled = true" (click)="setCoinToWallet(crypto)">Add to wallet!</button>
+	</div>
+</div>

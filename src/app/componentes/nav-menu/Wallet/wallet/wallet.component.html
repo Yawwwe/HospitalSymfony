@@ -1,0 +1,56 @@
+<h2>Portfolio</h2>
+
+<figure>
+  <blockquote class="blockquote">
+    <h3></h3>
+  </blockquote>
+  <figcaption class="blockquote-footer">
+    Total balance: {{getPrecioWallet()}}
+  </figcaption>
+</figure>
+
+<div class="row" *ngFor="let coin of getWallet()">
+  <table class="table table-sm table-striped align-middle">
+    <thead>
+      <tr>
+        <th scope="col" width="5%" class="text-end"></th>
+        <th scope="col" width="20%">Asset</th>
+        <th scope="col" width="15%" class="text-end">Balance</th>
+        <th scope="col" width="15%" class="text-end">Price</th>
+        <th scope="col" width="15%" class="text-end">Quantity</th>
+        <th scope="col" width="15%" class="text-end">Conversions</th>
+        <th scope="col" width="15%" class="text-end">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td scope="col" class="text-end">
+           
+          <img src="{{coin.image}}" width="50px" height="50px">
+        </td>
+        <td scope="col">
+          {{coin.id}}
+        </td>
+        <td scope="col" class="text-end">
+          <p *ngIf="coin.cantidad !=null"> {{coin.cantidad * coin.current_price}}$ </p>
+        </td>
+        <td scope="col" class="text-end">
+          {{ coin.current_price}}$
+        </td>
+        <td scope="col" class="text-end">
+         <app-asset-quantity [coin]="coin"></app-asset-quantity>
+        </td>
+        <td scope="col" class="text-end">
+          {{ coin.current_price * 0.94}}€
+        </td>
+        <td scope="col" class="text-end">
+          <app-asset-actions [coin]="coin"></app-asset-actions >
+        </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="row">
+  <button class="btn btn-primary btn-lg">REFRESH</button>
+</div>
